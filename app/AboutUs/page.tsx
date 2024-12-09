@@ -1,6 +1,6 @@
 import React from "react";
 import FilterSection from "@/components/FilterSection";
-
+import Image from "next/image";
 const Contact = () => {
   return (
     <div>
@@ -14,8 +14,8 @@ const Contact = () => {
 <section className="flex flex-col md:px-40 md:flex-row items-center gap-8 p-8">
   {/* Image Side */}
   <div className="flex-1">
-    <img
-      src={"/PagesSection/AboutUs.jpg"}
+    <Image
+      src={'/PagesSection/AboutUs.jpg'}
       width={400}
       height={400}
       alt="About Us"
@@ -44,7 +44,7 @@ const Contact = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-8">
           {/* Feature Card 1 */}
           <div className="p-4 rounded shadow-lg text-center">
-          <img
+          <Image
               src="/Contact/24-hours-support 1.png"
               alt="Feature 3"
               className="w-12 h-12 mx-auto mb-4"
@@ -55,7 +55,7 @@ const Contact = () => {
 
           {/* Feature Card 2 */}
           <div className="p-4  rounded shadow-lg text-center">
-          <img
+          <Image
               src="/Contact/premium-quality 1.png"
               alt="Feature 3"
               className="w-12 h-12 mx-auto mb-4"
@@ -66,7 +66,7 @@ const Contact = () => {
 
           {/* Feature Card 3 */}
           <div className="p-4  rounded shadow-lg text-center">
-            <img
+            <Image
               src="/Contact/free-delivery 1.png"
               alt="Feature 3"
               className="w-12 h-12 mx-auto mb-4"
@@ -79,7 +79,7 @@ const Contact = () => {
 
           {/* Feature Card 4 */}
           <div className="p-4  rounded shadow-lg text-center">
-          <img
+          <Image
               src="/Contact/cashback 1.png"
               alt="Feature 3"
               className="w-12 h-12 mx-auto mb-4"

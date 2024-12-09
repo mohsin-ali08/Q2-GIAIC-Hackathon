@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import Image from 'next/image';
 import FilterSection from "@/components/FilterSection";
 const Blog = () => {
   const blogPosts = [
@@ -66,7 +67,7 @@ const Blog = () => {
             <div key={post.id} className="flex flex-col md:flex-row bg-white rounded-lg shadow-md overflow-hidden">
             
               <div className="md:w-1/3 w-full">
-                <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+                <Image src={post.image} alt={post.title} className="w-full h-full object-cover" />
               </div>
 
              

@@ -1,14 +1,9 @@
 'use client';
 import React, { useState } from 'react';
 import { Form, Input, Button, Divider } from 'antd';
-
 const AuthSection = () => {
   const [isLogin, setIsLogin] = useState(true); // To toggle between login and signup forms
 
-  // Handle Form Submit
-  const onFinish = (values: any) => {
-    console.log('Form Submitted: ', values);
-  };
 
   return (
     <section className="py-10 h-full bg-[#F6F5FF]">
@@ -20,7 +15,7 @@ const AuthSection = () => {
           </h2>
 
           {/* Form */}
-          <Form onFinish={onFinish} layout="vertical" className="bg-white p-8 rounded-lg shadow-xl">
+          <Form  layout="vertical" className="bg-white p-8 rounded-lg shadow-xl">
             {/* Email */}
             <Form.Item
               label="Email"
