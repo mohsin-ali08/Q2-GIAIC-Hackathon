@@ -92,7 +92,9 @@ const TopCategories: React.FC = () => {
         </div>
         <div className=" justify-center w-1/2 items-center mx-auto hidden md:block">
           <Image
-          src={"/Outlebg/imagesinOne.png"} // Replace with your image path
+          src={"/Outlebg/imagesinOne.png"}
+          width={200}
+          height={200} // Replace with your image path
           alt="Description of image"
           className="w-full mt-8 object-cover" // Full width and responsive
         />

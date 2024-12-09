@@ -55,6 +55,8 @@ const BlogSection: React.FC = () => {
                 <Image
                   src={blog.imgSrc}
                   alt={blog.title}
+                  width={300}
+                  height={300}
                   className="w-full h-full object-cover"
                 />
               </div>
