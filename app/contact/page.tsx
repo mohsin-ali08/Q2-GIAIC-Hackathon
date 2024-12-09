@@ -9,7 +9,7 @@ const Contact = () => {
         {/* Heading */}
         <div className="text-center py-8">
           <h2 className="text-4xl font-semibold text-[#0D0E43]">Contact Us!</h2>
-          <p className="text-lg text-gray-600 mt-4">We'd love to hear from you! Reach out to us for any inquiries.</p>
+          <p className="text-lg text-gray-600 mt-4">Wed love to hear from you! Reach out to us for any inquiries.</p>
         </div>
 
         {/* Contact Section */}
@@ -51,9 +51,7 @@ const Contact = () => {
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#3F509E] focus:border-[#3F509E]"
                 />
               </div>
-
               <button
-                
                 className="w-full py-2 bg-[#3F509E] text-white rounded-md hover:bg-[#2C3A6C] transition-colors"
               >
                 Send Message

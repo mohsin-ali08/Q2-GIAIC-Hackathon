@@ -14,8 +14,7 @@ const DiscountItem: React.FC = () => {
           <div className="flex items-center space-x-2">
             <a
               href="#"
-              className="text-lg font-semibold text-[#151875] hover:underline hover:text-[#FB2E86] transition-all"
-            >
+              className="text-lg font-semibold text-[#151875] hover:underline hover:text-[#FB2E86] transition-all">
               Steel
             </a>
           </div>
@@ -54,7 +53,7 @@ const DiscountItem: React.FC = () => {
             </h3>
             <p className="text-lg text-[#555] mb-4">
               Get amazing deals on selected products. Hurry, these discounts
-              won't last long!
+              wont last long!
             </p>
             
             <div className="flex flex-wrap justify-start">

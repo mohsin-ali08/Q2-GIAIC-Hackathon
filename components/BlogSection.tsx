@@ -1,6 +1,6 @@
 import React from "react";
 import {  FaCalendarAlt ,FaPen } from "react-icons/fa"; // Icons for author and date
-
+import Image from "next/image";
 const BlogSection: React.FC = () => {
   const blogs = [
     {
@@ -52,7 +52,7 @@ const BlogSection: React.FC = () => {
             >
               {/* Blog Image */}
               <div className="relative w-full h-48">
-                <img
+                <Image
                   src={blog.imgSrc}
                   alt={blog.title}
                   className="w-full h-full object-cover"
