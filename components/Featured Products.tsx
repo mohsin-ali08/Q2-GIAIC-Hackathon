@@ -55,7 +55,7 @@ const FeaturedProducts: React.FC = () => {
             {products.map((product) => (
               <div
                 key={product.id}
-                className="group bg-white shadow-md rounded-lg overflow-hidden relative hover:scale-105 transition-transform duration-300"
+                className="group  bg-white shadow-md rounded-lg overflow-hidden relative hover:scale-105 transition-transform duration-300"
               >
                 {/* Product Image */}
                 <div className="relative w-full h-[250px] flex justify-center items-center overflow-hidden bg-[#F6F7FB]">
@@ -64,7 +64,7 @@ const FeaturedProducts: React.FC = () => {
                     alt={product.name}
                     width={200} // Adjust the width
                     height={200} // Adjust the height to maintain aspect ratio
-                    className=" object-contain" // Keeps image centered and fits within the container
+                    className="w-64 object-contain" // Keeps image centered and fits within the container
                   />
                 </div>
 

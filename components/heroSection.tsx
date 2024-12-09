@@ -18,7 +18,7 @@ const HeroSection: React.FC = () => {
           <h1 className="text-sm text-[#FB2E86] font-bold mb-4">
             Best Furniture For Your Castle....
           </h1>
-          <h2 className="text-black text-5xl w-[550px] font-semibold mb-4">
+          <h2 className="text-black md:text-5xl text-3xl md:w-[550px] font-semibold mb-4">
             New Furniture Collection Trends in 2020
           </h2>
           <p className="text-gray-600 text-lg mb-8">
