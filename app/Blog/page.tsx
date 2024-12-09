@@ -64,12 +64,12 @@ const Blog = () => {
         <div className="space-y-12 md:w-1/2 mx-auto">
           {blogPosts.map((post) => (
             <div key={post.id} className="flex flex-col md:flex-row bg-white rounded-lg shadow-md overflow-hidden">
-              {/* Blog Image */}
+            
               <div className="md:w-1/3 w-full">
                 <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
               </div>
 
-              {/* Blog Content */}
+             
               <div className="md:w-2/3 w-full p-6">
                 <h3 className="text-2xl font-semibold text-[#0D0E43]">{post.title}</h3>
                 <p className="text-sm text-gray-500 mt-2">{post.date} - {post.author}</p>
