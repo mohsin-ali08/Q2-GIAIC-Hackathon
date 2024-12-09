@@ -1,7 +1,6 @@
 'use client';
 import React, { useState } from 'react';
 import { Form, Input, Button, Divider } from 'antd';
-import Image from 'next/image';
 
 const AuthSection = () => {
   const [isLogin, setIsLogin] = useState(true); // To toggle between login and signup forms
