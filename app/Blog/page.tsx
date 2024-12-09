@@ -31,7 +31,7 @@ const Blog = () => {
     {
       id: 4,
       title: 'Why You Should Learn Tailwind CSS',
-      image: '/Blogs/blog1.jpg',
+      image: '/Blogs/blog4.jpg',
       excerpt: 'Tailwind CSS is becoming one of the most popular CSS frameworks, and here’s why...',
       date: 'October 25, 2024',
       author: 'Michael Clark',
@@ -39,7 +39,7 @@ const Blog = () => {
     {
       id: 5,
       title: 'Why You Should Learn Tailwind CSS',
-      image: '/Blogs/blog3.jpg',
+      image: '/Blogs/blog5.jpg',
       excerpt: 'Tailwind CSS is becoming one of the most popular CSS frameworks, and here’s why...',
       date: 'October 25, 2024',
       author: 'Michael Clark',
@@ -47,7 +47,7 @@ const Blog = () => {
     {
       id: 6,
       title: 'Why You Should Learn Tailwind CSS',
-      image: '/Blogs/blog2.jpg',
+      image: '/Blogs/blog6.jpg',
       excerpt: 'Tailwind CSS is becoming one of the most popular CSS frameworks, and here’s why...',
       date: 'October 25, 2024',
       author: 'Michael Clark',
