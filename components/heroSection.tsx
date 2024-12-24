@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
+
 const HeroSection: React.FC = () => {
   return (
     <section className="bg-[#F2F0FF] mt-2 overflow-hidden relative">
@@ -28,6 +29,7 @@ const HeroSection: React.FC = () => {
           <button className="px-6 py-3 bg-[#FB2E86] font-semibold rounded shadow hover:bg-gray-800 text-white transition duration-300">
             Shop Now
           </button>
+         
         </div>
 
         <div className="relative flex-1 flex justify-center items-center lg:py-20">

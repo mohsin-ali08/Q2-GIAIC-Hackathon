@@ -47,6 +47,8 @@ const Contact = () => {
           <Image
               src="/Contact/24-hours-support 1.png"
               alt="Feature 3"
+              height={300}
+              width={300}
               className="w-12 h-12 mx-auto mb-4"
             />
             <h4 className="font-bold text-lg">High Quality</h4>
@@ -58,6 +60,8 @@ const Contact = () => {
           <Image
               src="/Contact/premium-quality 1.png"
               alt="Feature 3"
+              height={300}
+              width={300}
               className="w-12 h-12 mx-auto mb-4"
             />
             <h4 className="font-bold text-lg">Fast Shipping</h4>
@@ -69,6 +73,8 @@ const Contact = () => {
             <Image
               src="/Contact/free-delivery 1.png"
               alt="Feature 3"
+              height={300}
+              width={300}
               className="w-12 h-12 mx-auto mb-4"
             />
             <h4 className="font-bold text-lg">Customer Support</h4>
@@ -81,6 +87,8 @@ const Contact = () => {
           <div className="p-4  rounded shadow-lg text-center">
           <Image
               src="/Contact/cashback 1.png"
+              width={300}
+              height={300}
               alt="Feature 3"
               className="w-12 h-12 mx-auto mb-4"
             />
