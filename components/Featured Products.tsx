@@ -1,17 +1,13 @@
 import React from "react";
-import { groq } from 'next-sanity';
-import client from '@/sanity/lib/client';
-import Card from '@/components/featuredCard'; // Import the Card component
-
-
-
+import { groq } from "next-sanity";
+import client from "@/sanity/lib/client";
+import Card from "@/components/featuredCard"; // Import the Card component
 
 import LatestProducts from "./LetestProduct";
 import OutletSection from "./OutletSection";
 import DiscountItem from "./DiscountItem";
-import TopCategories from './TopCategories'
+import TopCategories from "./TopCategories";
 import BlogSection from "./BlogSection";
-
 
 // Define the Product type
 interface featuredProducts {
@@ -24,14 +20,11 @@ interface featuredProducts {
   slug: { current: string }; // Slug for dynamic routing
 }
 
-
-
 const FeaturedProducts = async () => {
   // Fetch products from Sanity
-    const products : featuredProducts[] = await client.fetch(groq`*[_type == "featuredProducts"]`);
-  
-
-    
+  const products: featuredProducts[] = await client.fetch(
+    groq`*[_type == "featuredProducts"]`
+  );
 
   return (
     <section className="bg-white py-10">
@@ -40,33 +33,26 @@ const FeaturedProducts = async () => {
         <h2 className="text-3xl font-bold text-center text-[#0D0E43] mb-8">
           Featured Products
         </h2>
-        </div>
-
-       
- {/* Product Grid */}
- <div className="flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {products.map((product) => (
-              <Card key={product._id} product={product} />
-            ))}
-          </div>
       </div>
-      <LatestProducts/>
-      <OutletSection/>
-      <DiscountItem/>
-      < TopCategories/>
-      <BlogSection/>
+
+      {/* Product Grid */}
+      <div className="flex justify-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          {products.map((product) => (
+            <Card key={product._id} product={product} />
+          ))}
+        </div>
+      </div>
+      <LatestProducts />
+      <OutletSection />
+      <DiscountItem />
+      <TopCategories />
+      <BlogSection />
     </section>
   );
 };
 
 export default FeaturedProducts;
-
-
-
-
-
-
 
 //  {/* Product Grid */}
 //  <div className="flex justify-center">
