@@ -23,7 +23,7 @@ const ProductsPage = async () => {
   const products: Product[] = await client.fetch(groq`*[_type == "product"]`);
 
   return (
-    <section>
+    <section className='pt-3'>
       <FilterSection
         textTitle={"Shop Products"}
         textNavigation={"Home . "}
@@ -55,17 +55,14 @@ const ProductsPage = async () => {
 
                 {/* Product Info */}
                 <div className="p-4 relative">
-                  <div className="flex justify-between">
-                    <h3 className="text-lg font-semibold text-[#0D0E43]">
+                  <div className="flex flex-col">
+                    <h3 className="text-md font-semibold text-[#0D0E43]">
                       {product.name}
                     </h3>
-                    <p className="text-lg font-semibold text-[#FB2E86]">
-                      {product.price}
+                    <p className="text-md underline  font-semibold text-[#FB2E86]">
+                      {product.price}$
                     </p>
                   </div>
-                  <p className="text-sm text-[#777]">
-                    {product.description}
-                  </p>
                 </div>
 
                 {/* Hover actions */}
