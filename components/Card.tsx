@@ -21,7 +21,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ product }) => {
   return (
-    <Link href={`/products/${product.slug.current}`} passHref>
+    <Link href={`/product/${product.slug.current}`} passHref>
       <div className="group bg-white shadow-md rounded-lg overflow-hidden relative hover:scale-105 transition-transform duration-300">
         {/* Product Image */}
         <div className="relative w-full h-[250px] flex justify-center items-center overflow-hidden bg-[#F6F7FB]">

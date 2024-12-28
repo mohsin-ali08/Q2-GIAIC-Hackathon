@@ -1,5 +1,5 @@
 // schemas/schema.ts
-import product from '@/app/Products/page';
+import product from '@/app/Product/page';
 
 export default {
   name: 'default',

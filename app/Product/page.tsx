@@ -38,7 +38,7 @@ const ProductsPage = async () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {products.map((product) => (
-            <Link href={`/product/${product.slug.current}`} key={product._id}>
+            <Link href={`/ProductDetails/${product.slug.current}`} key={product._id}>
               <div
                 className="group bg-white shadow-md rounded-lg overflow-hidden relative hover:scale-105 transition-transform duration-300"
               >

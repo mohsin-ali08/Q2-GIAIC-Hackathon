@@ -119,7 +119,7 @@ const Header: React.FC = () => {
 
         <div className="group flex items-center">
           <Link
-            href={'./Products'}
+            href={'/Product'}
             className="text-gray-700 hover:text-[#FB2E86] py-2 lg:py-0"
           >
             Products
@@ -131,7 +131,7 @@ const Header: React.FC = () => {
 
         <div className="group flex items-center">
           <Link
-            href={'./Blog'}
+            href={'/Blog'}
             className="text-gray-700 hover:text-[#FB2E86] py-2 lg:py-0"
           >
             Blog
@@ -143,7 +143,7 @@ const Header: React.FC = () => {
 
         <div className="group flex items-center">
           <Link
-            href={"./AboutUs"}
+            href={"/AboutUs"}
             className="text-gray-700 hover:text-[#FB2E86] py-2 lg:py-0"
           >
             AboutUs
@@ -155,7 +155,7 @@ const Header: React.FC = () => {
 
         <div className="group flex items-center">
           <Link
-            href={'./contact'}
+            href={'/contact'}
             className="text-gray-700 hover:text-[#FB2E86] py-2 lg:py-0"
           >
             Contact
