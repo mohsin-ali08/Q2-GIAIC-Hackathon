@@ -47,7 +47,7 @@ const ProductDetails = async ({ params }: ProductDetailsProps) => {
         <div className="flex md:flex-row items-center space-x-5 space-y-4 md:space-x-6">
           {/* Side-small-images */}
           <div className="flex flex-col space-y-4 md:w-1/4">
-            {product.images?.map((item: any, index: number) => (
+            {product.images?.map((item:any, index:number) => (
               <div
                 key={index}
                 className="w-full h-32 flex justify-center items-center bg-[#F6F7FB] rounded-lg overflow-hidden cursor-pointer"
