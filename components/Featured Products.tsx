@@ -34,12 +34,11 @@ const FeaturedProducts = async () => {
           Featured Products
         </h2>
       </div>
-
       {/* Product Grid */}
       <div className="flex justify-center">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {products.map((product) => (
-            <Card key={product._id} product={product} />
+          {products.map((featuredProduct) => (
+            <Card key={featuredProduct._id} product={featuredProduct} />
           ))}
         </div>
       </div>

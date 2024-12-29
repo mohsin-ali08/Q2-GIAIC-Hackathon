@@ -1,9 +1,12 @@
+// app/layout.tsx
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-
+import { CartProvider } from "@/app/context/Cartcontext"; // Import without curly braces (since it's a default export)
 import Header from "@/components/Header";
-import Footer from "@/components/Footer"
+import Footer from "@/components/Footer";
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -27,12 +30,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Header/>
-        {children}
-        <Footer/>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <CartProvider>
+        <Header />
+          <div>{children}</div>
+        </CartProvider>
+        <Footer />
       </body>
     </html>
   );

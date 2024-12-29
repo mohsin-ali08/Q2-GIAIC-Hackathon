@@ -87,6 +87,7 @@ const ProductDetails = async ({ params }: ProductDetailsProps) => {
           </div>
           <p className="text-gray-600 mt-4">{product.description}</p>
          
+         
 
           {/* Actions */}
           <div className="flex space-x-4 mt-6">
