@@ -1,15 +1,21 @@
-
 import { useContext } from 'react';
 import { CartContext } from '@/app/context/Cartcontext';
 import React from 'react';
 import { AiOutlineLeft, AiOutlineClose } from 'react-icons/ai'; // Import both the curved left and close icons
 
+// Define the types for the context data
+interface CartContextType {
+  showCart: boolean;
+  setShowCart: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 const Cart = () => {
-     const { showCart, setShowCart }: any = useContext(CartContext);
-   
-     const handleClose= () => {
-       setShowCart(!showCart)
-     }
+  const { showCart, setShowCart } = useContext(CartContext) as CartContextType;  // Type the context
+
+  const handleClose = () => {
+    setShowCart(!showCart);
+  };
+
   return (
     <div className="fixed mt-40 top-0 right-0 w-1/2 h-auto bg-white shadow-lg">
       {/* Empty Cart Section */}
@@ -17,12 +23,13 @@ const Cart = () => {
         {/* Header */}
         <div className="flex justify-between items-center p-4 border-b">
           {/* Back Arrow Icon */}
-          <button onClick={handleClose} >
+          <button onClick={handleClose}>
             <AiOutlineLeft className="text-gray-500 text-2xl cursor-pointer" />
           </button>
 
-          <h2 className="text-xl font-semibold text-gray-800">Your Cart  <span className='text-pink-600'>0</span></h2>
-         
+          <h2 className="text-xl font-semibold text-gray-800">
+            Your Cart <span className="text-pink-600">0</span>
+          </h2>
 
           {/* Close Icon (X) */}
           <button className="text-gray-500 text-2xl">

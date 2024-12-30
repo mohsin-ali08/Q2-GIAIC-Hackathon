@@ -1,11 +1,27 @@
 import { groq } from "next-sanity";
 import { client } from "@/sanity/lib/client";
-
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import { FaShoppingCart, FaHeart, FaShareAlt } from "react-icons/fa";
 
-const fetchProductDetails = async (slug: string) => {
+// Define the types for the product and images
+interface ProductImage {
+  _id: string;
+  asset: {
+    url: string;
+  };
+}
+
+interface Product {
+  name: string;
+  images: ProductImage[];
+  price: number;
+  originalPrice: number;
+  description: string;
+}
+
+// Fetch product details based on the slug
+const fetchProductDetails = async (slug: string): Promise<Product | null> => {
   const decodedSlug = decodeURIComponent(slug); // Decode the slug
   console.log('Decoded slug:', decodedSlug); // Log the decoded slug
 
@@ -31,6 +47,7 @@ interface ProductDetailsProps {
 const ProductDetails = async ({ params }: ProductDetailsProps) => {
   const { slug } = params;
 
+  // Fetch product details using the slug
   const product = await fetchProductDetails(slug);
 
   if (!product) {
@@ -48,7 +65,7 @@ const ProductDetails = async ({ params }: ProductDetailsProps) => {
         <div className="flex md:flex-row items-center space-x-5 space-y-4 md:space-x-6">
           {/* Side-small-images */}
           <div className="flex flex-col space-y-4 md:w-1/4">
-            {product.images?.map((item:any, index:number) => (
+            {product.images?.map((item: ProductImage, index: number) => (
               <div
                 key={index}
                 className="w-full h-32 flex justify-center items-center bg-[#F6F7FB] rounded-lg overflow-hidden cursor-pointer"
@@ -87,8 +104,6 @@ const ProductDetails = async ({ params }: ProductDetailsProps) => {
             </span>
           </div>
           <p className="text-gray-600 mt-4">{product.description}</p>
-         
-         
 
           {/* Actions */}
           <div className="flex space-x-4 mt-6">

@@ -14,14 +14,21 @@ import {
 } from "react-icons/hi";
 import Cart from "./Cart";
 
+// Define the type for the CartContext
+interface CartContextType {
+  showCart: boolean;
+  setShowCart: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 const Header: React.FC = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
 
-  const { showCart, setShowCart }: any = useContext(CartContext);
+  // Use the correct type for the CartContext
+  const { showCart, setShowCart } = useContext(CartContext) as CartContextType;
 
   const handleClick = () => {
-    setShowCart(!showCart)
-  }
+    setShowCart(!showCart);
+  };
 
   return (
     <header className="w-full bg-white overflow-auto ">
@@ -31,8 +38,6 @@ const Header: React.FC = () => {
           <HiOutlineMail className="mr-2" />
           <span className="sm:inline">mohsinalisurhio08@gmail.com</span>
         </div>
-
-       
 
         {/* Right Section: Phone, Currency, Login, Wishlist - Visible on desktop */}
         <div className="hidden sm:flex items-center space-x-4 ">
@@ -187,21 +192,20 @@ const Header: React.FC = () => {
 
       {/* Shopping Cart Icon with Badge */}
       <div className="absolute md:top-[-4] md:right-20 top-[-4] right-1 m-4 flex items-center">
-        
         <Link
           href="/ShopingCart"
           className="relative text-white flex items-center justify-center text-xl cursor-pointer"
         >
-         
-         <button  onClick={handleClick}>
-          <HiShoppingCart className="md:mr-6" />
-          <span className="absolute top-0 right-4 bg-[#FB2E86] text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">0</span>
-         </button>
-         
+          <button onClick={handleClick}>
+            <HiShoppingCart className="md:mr-6" />
+            <span className="absolute top-0 right-4 bg-[#FB2E86] text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">
+              0
+            </span>
+          </button>
         </Link>
       </div>
-     
-      {showCart && <Cart/>}
+
+      {showCart && <Cart />}
     </header>
   );
 };

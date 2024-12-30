@@ -1,6 +1,6 @@
 import React from "react";
 import { urlFor } from "@/sanity/lib/client";
-
+import Image from "next/image";
 interface CardProps {
   product: {
     name: string;
@@ -20,9 +20,11 @@ const Card: React.FC<CardProps> = ({ product }) => {
   return (
     <div className="border rounded-lg p-4 shadow hover:shadow-lg">
       {/* Product Image */}
-      <img
+      <Image
         src={productImage}
         alt={product.name}
+        width={200}
+        height={200}
         className="w-full h-40 object-cover mb-4"
       />
 
