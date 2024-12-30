@@ -1,58 +1,47 @@
-import React from 'react';
-import { urlFor } from '@/sanity/lib/image';
-import Link from 'next/link';
-import Image from 'next/image';
+import React from "react";
+import { urlFor } from "@/sanity/lib/client";
 
-// Define the Product type inline
-interface Product {
-  _id: string;
-  name: string;
-  images: { asset: { _ref: string } }[]; // Array of image asset references
-  price: string;
-  originalPrice: string;
-  description?: string; // Optional, for products without descriptions
-  slug: { current: string }; // Slug for dynamic routing
-}
-
-// Define the CardProps interface
 interface CardProps {
-  product: Product;
+  product: {
+    name: string;
+    images: { asset: { _ref: string } }[];
+    price: string;
+    originalPrice: string;
+    description?: string;
+    slug: { current: string };
+  };
 }
 
 const Card: React.FC<CardProps> = ({ product }) => {
+  const productImage = product.images[0]
+    ? urlFor(product.images[0].asset._ref).url()
+    : "/placeholder-image.jpg"; // Fallback image
+
   return (
-    <Link href={`/product/${product.slug.current}`} passHref>
-      <div className="group bg-white shadow-md rounded-lg overflow-hidden relative hover:scale-105 transition-transform duration-300">
-        {/* Product Image */}
-        <div className="relative w-full h-[250px] flex justify-center items-center overflow-hidden bg-[#F6F7FB]">
-          <Image
-            src={product.images && product.images[0] ? urlFor(product.images[0]).url() : '/default-image.jpg'}
-            alt={product.name}
-            width={200}
-            height={200}
-            className="object-contain"
-          />
-        </div>
+    <div className="border rounded-lg p-4 shadow hover:shadow-lg">
+      {/* Product Image */}
+      <img
+        src={productImage}
+        alt={product.name}
+        className="w-full h-40 object-cover mb-4"
+      />
 
-        {/* Product Info */}
-        <div className="p-4">
-          <div className="flex justify-between">
-            <h3 className="text-lg font-semibold text-[#0D0E43]">{product.name}</h3>
-            <p className="text-lg font-semibold text-[#FB2E86]">{product.price}</p>
-          </div>
-          {product.description && (
-            <p className="text-sm text-[#777] mt-2 line-clamp-2">{product.description}</p>
-          )}
-        </div>
+      {/* Product Info */}
+      <h3 className="text-lg font-bold text-gray-800">{product.name}</h3>
+      <p className="text-sm text-gray-600 truncate">{product.description}</p>
 
-        {/* Hover actions */}
-        <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-4 px-4">
-            {/* Placeholder for hover actions */}
-          </div>
-        </div>
+      {/* Price */}
+      <div className="flex items-center justify-between mt-4">
+        <span className="text-lg font-semibold text-blue-600">
+          ${product.price}
+        </span>
+        {product.originalPrice && (
+          <span className="text-sm line-through text-gray-400">
+            ${product.originalPrice}
+          </span>
+        )}
       </div>
-    </Link>
+    </div>
   );
 };
 

@@ -1,7 +1,8 @@
 import React from "react";
 import { groq } from "next-sanity";
-import client from "@/sanity/lib/client";
-import Card from "@/components/featuredCard"; // Import the Card component
+import { client } from "@/sanity/lib/client";
+
+import Card from "@/components/featuredCard";
 
 import LatestProducts from "./LetestProduct";
 import OutletSection from "./OutletSection";
@@ -10,48 +11,72 @@ import TopCategories from "./TopCategories";
 import BlogSection from "./BlogSection";
 
 // Define the Product type
-interface featuredProducts {
+interface FeaturedProduct {
   _id: string;
   name: string;
   images: { asset: { _ref: string } }[]; // Array of image asset references
   price: string;
   originalPrice: string;
-  description?: string; // Optional, for products without descriptions
+  description?: string; // Optional field
   slug: { current: string }; // Slug for dynamic routing
 }
 
 const FeaturedProducts = async () => {
-  // Fetch products from Sanity
-  const products: featuredProducts[] = await client.fetch(
-    groq`*[_type == "featuredProducts"]`
-  );
+  try {
+    // Fetch products from Sanity
+    const products: FeaturedProduct[] = await client.fetch(
+      groq`*[_type == "featuredProducts"] {
+        _id,
+        name,
+        images,
+        price,
+        originalPrice,
+        description,
+        slug
+      }`
+    );
 
-  return (
-    <section className="bg-white py-10">
-      <div className="container mx-auto px-4">
-        {/* Heading */}
-        <h2 className="text-3xl font-bold text-center text-[#0D0E43] mb-8">
-          Featured Products
-        </h2>
-      </div>
-      {/* Product Grid */}
-      <div className="flex justify-center">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {products.map((featuredProduct) => (
-            <Card key={featuredProduct._id} product={featuredProduct} />
-          ))}
+    console.log("Fetched Featured Products:", products);
+
+    return (
+      <section className="bg-white py-10">
+        {/* Container */}
+        <div className="container mx-auto px-4">
+          {/* Heading */}
+          <h2 className="text-3xl font-bold text-center text-[#0D0E43] mb-8">
+            Featured Products
+          </h2>
         </div>
+
+        {/* Product Grid */}
+        <div className="flex justify-center px-20">
+          <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-8">
+            {products.map((featuredProduct) => (
+              <Card key={featuredProduct._id} product={featuredProduct} />
+            ))}
+          </div>
+        </div>
+
+        {/* Additional Sections */}
+        <LatestProducts />
+        <OutletSection />
+        <DiscountItem />
+        <TopCategories />
+        <BlogSection />
+      </section>
+    );
+  } catch (error) {
+    console.error("Error fetching featured products:", error);
+    return (
+      <div className="text-center text-red-500">
+        Failed to load featured products.
       </div>
-      <LatestProducts />
-      <OutletSection />
-      <DiscountItem />
-      <TopCategories />
-      <BlogSection />
-    </section>
-  );
+    );
+  }
 };
 
 export default FeaturedProducts;
+
 
 //  {/* Product Grid */}
 //  <div className="flex justify-center">

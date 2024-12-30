@@ -1,17 +1,21 @@
 import { createClient } from '@sanity/client';
-
+import imageUrlBuilder from '@sanity/image-url';
 
 export const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID, // Replace with your project ID
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-  apiVersion: '2023-12-27', // Use a date-based version
+  apiVersion: '2023-12-27',
   useCdn: true,
-  token: process.env.NEXT_PUBLIC_SANITY_TOKEN
+  token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
 });
 
-async function fetchProductBySlug(slug: string) {
+const builder = imageUrlBuilder(client);
+
+export const urlFor = (source: any) => builder.image(source);
+
+async function fetchProductBySlug(schema: string, slug: string) {
   const query = `
-    *[_type == "product" && slug.current == $slug][0] {
+    *[_type == $schema && slug.current == $slug][0] {
       _id,
       name,
       description,
@@ -21,7 +25,7 @@ async function fetchProductBySlug(slug: string) {
     }
   `;
 
-  const params = { slug };
+  const params = { schema, slug };
 
   try {
     const product = await client.fetch(query, params);
@@ -33,15 +37,4 @@ async function fetchProductBySlug(slug: string) {
   }
 }
 
-// Usage example: Fetch a product by slug
-fetchProductBySlug('apple-iphone-14-pro-max')
-  .then(product => {
-    if (product) {
-      console.log(product);
-    } else {
-      console.log('Product not found');
-    }
-  })
-  .catch(error => console.error(error));
-
-export default client;
+export { fetchProductBySlug };

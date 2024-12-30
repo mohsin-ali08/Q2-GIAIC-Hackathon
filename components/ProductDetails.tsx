@@ -1,5 +1,6 @@
 import { groq } from "next-sanity";
-import client from "@/sanity/lib/client";
+import { client } from "@/sanity/lib/client";
+
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import { FaShoppingCart, FaHeart, FaShareAlt } from "react-icons/fa";

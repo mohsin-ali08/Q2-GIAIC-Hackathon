@@ -1,6 +1,7 @@
 // src/app/products/page.tsx
 import { groq } from 'next-sanity';
-import client from '@/sanity/lib/client';
+import { client } from "@/sanity/lib/client";
+
 import { urlFor } from '@/sanity/lib/image';
 import FilterSection from "@/components/FilterSection";
 import { FaShoppingCart, FaHeart, FaSearch } from "react-icons/fa";
